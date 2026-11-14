@@ -1,0 +1,12 @@
+line-length = 120
+
+[lint]
+# 历史代码中存在长提示词与长测试字符串，不强制行宽。
+ignore = ["E501"]
+
+[lint.per-file-ignores]
+# legacy/ 是早期学习模块，保留代码但不以其历史写法阻塞主工程 CI。
+"legacy/**" = ["E402", "E722", "F401", "W292"]
+# 系统提示词内的长中文行不做折行，避免改变 prompt 内容。
+"llm.py" = ["E501"]
+"config/prompts.py" = ["E501"]

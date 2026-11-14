@@ -1,0 +1,2 @@
+RepoPilot demo workspace — sample A.
+Used for read-only repository analysis demos.

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "readonly_list",
+    "mode": "readonly",
+    "question": "列出仓库根目录下的 Python 文件，不要修改任何文件。",
+    "max_steps": 12,
+    "forbid_mutation_tools": true,
+    "require_task_completed": true
+  },
+  {
+    "id": "readonly_search",
+    "mode": "readonly",
+    "question": "搜索仓库中与 sample_agent 或 run_tool 相关的 Python 代码，只读分析，不要写入。",
+    "max_steps": 12,
+    "forbid_mutation_tools": true,
+    "require_tools_any": ["search_in_repo", "read_repo_file", "list_repo_files"],
+    "require_task_completed": true
+  },
+  {
+    "id": "full_proposal_only",
+    "mode": "full",
+    "question": "给 tools/tool_manager.py 的 run_tool 增加更详细的错误日志，只输出修改方案，不要执行写入或 apply patch。",
+    "max_steps": 12,
+    "forbid_mutation_tools": true,
+    "require_tools_any": ["propose_code_changes"],
+    "require_task_completed": true
+  },
+  {
+    "id": "full_mutation_sample_txt",
+    "mode": "full",
+    "question": "将 sample.txt 的内容改为 updated。先预览 diff，确认后执行 git backup 和 apply patch，只修改 sample.txt。",
+    "max_steps": 16,
+    "require_tools_any": ["apply_patch"],
+    "require_tool_confirmation": ["apply_patch"],
+    "assert_file_contains": {
+      "path": "sample.txt",
+      "substring": "updated"
+    },
+    "require_task_completed": true
+  }
+]

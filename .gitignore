@@ -1,0 +1,30 @@
+# Runtime artifacts
+logs/
+*.log
+database/
+*.db
+*.sqlite3
+memory.json
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local backups of demo screenshots (originals kept outside the published repo)
+docs/assets/originals/
+
+# Sensitive / local configuration
+.env
+.env.*
+!.env.example
+
+# Personal materials (not part of the project)
+PROJECT_DEVELOPMENT_STORY.md
+RepoPilot_学习手册.docx
+RepoPilot_学习手册.pdf
+项目全生命周期研发纪实.pdf
+*简历*
+*学习手册*

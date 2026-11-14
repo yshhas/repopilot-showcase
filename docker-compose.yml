@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: repopilot-api
+    ports:
+      - "8000:8000"
+    environment:
+      # ---- LLM Provider ----
+      # Set your API key here (or use .env file)
+      LLM_API_KEY: "${LLM_API_KEY:-}"
+      # LLM_PROVIDER: deepseek      # deepseek | openai | local
+      # LLM_MODEL: deepseek-chat    # model name
+      # LLM_BASE_URL: https://api.deepseek.com
+      #
+      # ---- Agent ----
+      # AGENT_MODE: full            # full | readonly
+      # REACT_MAX_STEPS: 20
+      # LOG_LEVEL: INFO
+      #
+      # ---- API ----
+      # API_KEY: ""                 # optional API key for auth
+      #
+      # ---- Repo to analyze ----
+      REPO_ROOT: /repo
+
+    volumes:
+      # Mount your code repository to analyze
+      - ./:/repo:ro
+      # Persistent data dirs
+      - repopilot_db:/app/database
+      - repopilot_logs:/app/logs
+
+    restart: unless-stopped
+
+volumes:
+  repopilot_db:
+  repopilot_logs:

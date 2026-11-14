@@ -1,0 +1,37 @@
+[
+  {
+    "id": "context_budget_impl",
+    "query": "truncate files when context budget exceeded",
+    "expected_paths": ["index/ranking.py", "tools/change_proposal.py"],
+    "top_k": 5,
+    "min_hits": 1
+  },
+  {
+    "id": "hybrid_retriever",
+    "query": "merge rank grep symbol semantic backends",
+    "expected_paths": ["rag/hybrid.py"],
+    "top_k": 5,
+    "min_hits": 1
+  },
+  {
+    "id": "semantic_expand",
+    "query": "expand semantic candidates from task description",
+    "expected_paths": ["rag/context_expand.py", "tools/change_proposal.py"],
+    "top_k": 5,
+    "min_hits": 1
+  },
+  {
+    "id": "react_agent_entry",
+    "query": "ReAct loop step boundary cancel checkpoint",
+    "expected_paths": ["react_agent.py"],
+    "top_k": 5,
+    "min_hits": 1
+  },
+  {
+    "id": "apply_patch_tool",
+    "query": "git apply check batch patch apply",
+    "expected_paths": ["tools/patch_apply.py"],
+    "top_k": 5,
+    "min_hits": 1
+  }
+]
